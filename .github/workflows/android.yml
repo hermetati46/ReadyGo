@@ -1,0 +1,49 @@
+name: Android CI
+
+# Controls when the workflow will run.
+on:
+  # Triggers the workflow on push events but only for the "main" branch.
+  push:
+    branches: [ "master" ]
+  # Triggers the workflow on pull request events but only for the "main" branch.
+  pull_request:
+    branches: [ "master" ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel.
+jobs:
+  # This workflow contains a single job called "build".
+  build:
+    # The type of runner that the job will run on.
+    # 'ubuntu-latest' is a good default for Android builds.
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job.
+    steps:
+      # 1. Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it.
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Sets up the Java Development Kit (JDK) environment.
+      # Modern Android projects typically use JDK 17.
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      # 3. Grants execute permissions to the gradlew script.
+      # This is necessary for the runner to be able to execute Gradle commands.
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      # 4. Runs the 'build' task with Gradle.
+      # This compiles the source code, runs linters, and assembles the debug build.
+      # It's a good way to check for compilation errors.
+      - name: Build with Gradle
+        run: ./gradlew build
+
+      # 5. Runs the unit tests for the project.
+      # This step ensures that your app's logic is working as expected.
+      - name: Run unit tests
+        run: ./gradlew testDebugUnitTest
