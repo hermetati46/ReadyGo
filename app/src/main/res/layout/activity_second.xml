@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="24dp"
-    android:background="#F0F4F7"
+    android:background="@drawable/back_gradient"
     tools:context=".SecondActivity">
 
     <TextView
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Packing List"
         android:textSize="32sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/alkatra_bold"
         android:textColor="@color/black"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="24dp"/>
@@ -73,6 +73,7 @@
         android:padding="16dp"
         android:textSize="18sp"
         android:backgroundTint="#607D8B"
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/ar_one_sans_bold"/>
 
 </LinearLayout>

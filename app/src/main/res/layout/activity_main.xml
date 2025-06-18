@@ -7,16 +7,17 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="24dp"
-    android:background="#F0F4F7"
+    android:background="@drawable/back_gradient"
     tools:context=".MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Checklist"
-        android:textSize="32sp"
+        android:textSize="42sp"
         android:textStyle="bold"
         android:textColor="@color/black"
+        android:fontFamily="@font/alkatra_bold"
         android:layout_marginBottom="48dp"/>
 
     <Button
@@ -28,7 +29,8 @@
         android:padding="16dp"
         android:textSize="18sp"
         android:backgroundTint="#4CAF50"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/ar_one_sans_bold"/>
 
     <Button
         android:id="@+id/btnGoToSecondScreen"
